@@ -1,7 +1,7 @@
-package disorg.douma.gradebook.services;
+package disorg.douma.gradebook.daos;
 
 import disorg.douma.gradebook.dtos.StudentDto;
 
-public interface StudentService {
+public interface StudentDao {
     StudentDto createStudent(StudentDto dto);
 }

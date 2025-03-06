@@ -1,4 +1,4 @@
-package disorg.douma.gradebook.services;
+package disorg.douma.gradebook.daos;
 
 import disorg.douma.gradebook.dtos.StudentDto;
 import disorg.douma.gradebook.entities.Student;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class StudentServiceImpl implements StudentService {
+public class StudentDaoImpl implements StudentDao {
     private StudentRepository repository;
 
     @Override

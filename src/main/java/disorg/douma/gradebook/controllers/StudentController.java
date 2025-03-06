@@ -1,7 +1,7 @@
 package disorg.douma.gradebook.controllers;
 
 import disorg.douma.gradebook.dtos.StudentDto;
-import disorg.douma.gradebook.services.StudentService;
+import disorg.douma.gradebook.daos.StudentDao;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/students")
 public class StudentController {
-    private StudentService studentService;
+    private StudentDao studentService;
 
     @PostMapping
     public ResponseEntity<StudentDto> createStudent(@RequestBody StudentDto dto) {
