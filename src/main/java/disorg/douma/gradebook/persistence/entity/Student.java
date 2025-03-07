@@ -1,4 +1,4 @@
-package disorg.douma.gradebook.entities;
+package disorg.douma.gradebook.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

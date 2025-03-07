@@ -1,4 +1,4 @@
-package disorg.douma.gradebook.dtos;
+package disorg.douma.gradebook.persistence.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

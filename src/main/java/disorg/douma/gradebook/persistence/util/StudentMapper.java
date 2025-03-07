@@ -1,7 +1,7 @@
-package disorg.douma.gradebook.mappers;
+package disorg.douma.gradebook.persistence.util;
 
-import disorg.douma.gradebook.dtos.StudentDto;
-import disorg.douma.gradebook.entities.Student;
+import disorg.douma.gradebook.persistence.dto.StudentDto;
+import disorg.douma.gradebook.persistence.entity.Student;
 
 /**
  * Contains static methods to convert student entity object to and from student dtos.
