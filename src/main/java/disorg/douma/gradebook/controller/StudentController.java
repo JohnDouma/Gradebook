@@ -1,7 +1,7 @@
 package disorg.douma.gradebook.controller;
 
-import disorg.douma.gradebook.persistence.dto.StudentDto;
 import disorg.douma.gradebook.persistence.dao.StudentDao;
+import disorg.douma.gradebook.persistence.dto.StudentDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import java.util.List;
 
