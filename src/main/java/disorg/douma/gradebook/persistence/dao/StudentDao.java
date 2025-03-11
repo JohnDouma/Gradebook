@@ -8,4 +8,6 @@ public interface StudentDao {
     StudentDto createStudent(StudentDto dto);
     StudentDto getStudent(Long studentId);
     List<StudentDto> getAllStudents();
+    StudentDto updateStudent(Long id, StudentDto student);
+    void deleteStudent(Long id);
 }

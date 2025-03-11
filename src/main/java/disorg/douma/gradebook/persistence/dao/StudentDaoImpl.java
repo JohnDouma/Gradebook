@@ -26,18 +26,36 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public StudentDto getStudent(Long studentId) {
-        Student student = repository.findById(studentId)
-                .orElseThrow(
-                        () -> new ResourceNotFoundException("The student with id equal to " + studentId + " does not exist."));
+        Student student = repository.findById(studentId).orElseThrow(() -> new ResourceNotFoundException("The student with id equal to " + studentId + " does not exist."));
         return StudentMapper.toStudentDto(student);
     }
 
     @Override
     public List<StudentDto> getAllStudents() {
         List<Student> students = repository.findAll();
-        List<StudentDto> retlist = students.stream().map((student) ->
-            StudentMapper.toStudentDto(student)).collect(Collectors.toList());
+        List<StudentDto> retlist = students.stream().map((student) -> StudentMapper.toStudentDto(student)).collect(Collectors.toList());
 
         return retlist;
+    }
+
+    @Override
+    public StudentDto updateStudent(Long id, StudentDto student) {
+        Student newStudent = repository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Student with id " + id + " not found"));
+
+        newStudent.setFirstName(student.getFirstName());
+        newStudent.setLastName(student.getLastName());
+        newStudent.setEmail(student.getEmail());
+        newStudent.setId(id);
+        repository.save(newStudent);
+
+        return StudentMapper.toStudentDto(newStudent);
+    }
+
+    @Override
+    public void deleteStudent(Long id) {
+        Student student = repository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Student with id " + id + " not found"));
+        repository.deleteById(id);
     }
 }
