@@ -28,7 +28,7 @@ public class StudentController {
         return new ResponseEntity<>(newDto, HttpStatus.CREATED);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<StudentDto> getStudentById(@PathVariable("id") Long id) {
         StudentDto newDto = studentService.getStudent(id);
         return ResponseEntity.ok(newDto);
@@ -40,13 +40,13 @@ public class StudentController {
         return ResponseEntity.ok(students);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<StudentDto> updateStudent(@PathVariable("id") Long id, @RequestBody StudentDto updatedStudent) {
         StudentDto newStudent = studentService.updateStudent(id, updatedStudent);
         return ResponseEntity.ok(newStudent);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteStudent(@PathVariable("id") Long id) {
         studentService.deleteStudent(id);
         return ResponseEntity.ok("Student with id " + id + " successfully deleted");
