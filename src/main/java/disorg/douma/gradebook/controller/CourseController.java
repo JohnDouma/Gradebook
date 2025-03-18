@@ -5,6 +5,8 @@ import disorg.douma.gradebook.persistence.dto.CourseDto;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,12 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @AllArgsConstructor
-@RestController
+@Controller
 @RequestMapping("/courses")
 public class CourseController {
     private CourseDao courseDao;
@@ -29,9 +30,10 @@ public class CourseController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CourseDto>> getAllCourses() {
+    public String getAllCourses(Model model) {
         List<CourseDto> courses = courseDao.getAllCourses();
-        return ResponseEntity.ok(courses);
+        model.addAttribute("courses", courses);
+        return "courses";
     }
 
     @GetMapping("/{id}")
